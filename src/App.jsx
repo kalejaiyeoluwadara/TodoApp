@@ -2,7 +2,7 @@
 // export default App
 import React, { useState } from 'react';
 import Home from './home';
-import './app.css'
+import './App.css'
 const App = () =>{
   return (
     <Home/>
