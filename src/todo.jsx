@@ -1,5 +1,4 @@
 import React, { useState,useEffect } from "react";
-import { BsMoonFill, BsSunFill } from "react-icons/bs";
 import Foot from "./foot";
 import { useGlobal } from "./context";
 import {motion,AnimatePresence}from 'framer-motion'
