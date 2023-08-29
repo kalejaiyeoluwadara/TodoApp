@@ -5,7 +5,7 @@ import {motion,AnimatePresence} from 'framer-motion'
 function AppProvider({children}) {
   const [list,setList] = useState([])
   const [view,setView] = useState('all')
-  const [mode,setMode] = useState(true);
+  const [mode,setMode] = useState(false);
   const [todo,setTodo] = useState('');
   const [active,setActive] = useState([])
   const [completed,setCompleted] = useState([]);

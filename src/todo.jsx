@@ -3,6 +3,11 @@ import { BsMoonFill, BsSunFill } from "react-icons/bs";
 import Foot from "./foot";
 import { useGlobal } from "./context";
 import {motion,AnimatePresence}from 'framer-motion'
+import check from './assets/icon-check.svg'
+import moon from "./assets/icon-moon.svg";
+import sun from "./assets/icon-sun.svg";
+// import logo from './assets/icon-logo.svg'
+import cross from "./assets/icon-cross.svg";
 const Item = ({ text, id }) => {
   const { list, setList, setCompleted, mode, setMode,itemVariant, completed } = useGlobal();
   const [ch, setCh] = useState(false);
@@ -23,24 +28,26 @@ const Item = ({ text, id }) => {
       exit="exit"
       whileHover="whileHover"
       transition="transition"
-      onClick={() => {
-        setCh(!ch);
-       if(!isCompleted){
-         const newComplete = { id, text };
-         setCompleted((prev) => [...prev, newComplete]);
-          localStorage.setItem(
-            "completedList",
-            JSON.stringify([...completed, newComplete])
-          );
-       }
-      }}
       className="flex w-full px-8 bb py-6 items-center justify-between"
     >
-      <div className="flex items-center gap-6">
+      <div
+        onClick={() => {
+          setCh(!ch);
+          if (!isCompleted) {
+            const newComplete = { id, text };
+            setCompleted((prev) => [...prev, newComplete]);
+            localStorage.setItem(
+              "completedList",
+              JSON.stringify([...completed, newComplete])
+            );
+          }
+        }}
+        className="flex items-center gap-6"
+      >
         <div>
           {isCompleted ? (
             <div className="check2">
-              <img className="h-[12px]" src="/images/icon-check.svg" alt="" />
+              <img className="h-[12px]" src={check} alt="" />
             </div>
           ) : (
             <div className="check" />
@@ -50,12 +57,7 @@ const Item = ({ text, id }) => {
           {text}
         </p>
       </div>
-      <img
-        onClick={handleDelete}
-        className="h-[17px]"
-        src="/images/icon-cross.svg"
-        alt=""
-      />
+      <img onClick={handleDelete} className="h-[17px]" src={cross} alt="" />
     </motion.div>
   );
 };
@@ -89,7 +91,7 @@ const Item2 = ({ text, id }) => {
       <img
         onClick={handleDelete}
         className="h-[17px]"
-        src="/images/icon-cross.svg"
+        src={cross}
         alt=""
       />
     </motion.div>
@@ -119,9 +121,9 @@ function Todo() {
           }}
         >
           {mode ? (
-            <img src="/images/icon-moon.svg" className="text-white" alt="" />
+            <img src={moon} className="text-white" alt="" />
           ) : (
-            <img src="/images/icon-sun.svg" className="text-white" alt="" />
+            <img src={sun} className="text-white" alt="" />
           )}
         </div>
       </div>
