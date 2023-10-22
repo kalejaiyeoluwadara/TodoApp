@@ -5,7 +5,7 @@ body{
 *{
  padding: 0px;
  margin: 0px;
- font-family: poppins;
+ font-family: poppins,sans-serif;
 }
 .sr{
     border-radius: 9px;

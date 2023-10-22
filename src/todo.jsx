@@ -132,7 +132,9 @@ function Todo() {
           mode ? "bg-white" : "dark2"
         } rounded-md mt-3 h-[60px] items-center `}
       >
-        <div onClick={handleAddTodo} className="check" />
+        <div onClick={handleAddTodo} className=" flex items-center justify-center check">
+          <img src={check} alt="" />
+        </div>
         <input
           value={todo}
           onChange={(e) => {
